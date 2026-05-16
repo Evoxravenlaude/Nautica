@@ -15,16 +15,21 @@ export function CollectionCard({ collection }: { collection: Collection }) {
       className="naut-glass overflow-hidden group cursor-pointer transition-all duration-300 hover:border-[oklch(1_0_0/0.14)] hover:-translate-y-1 hover:shadow-[0_8px_32px_oklch(0_0_0/0.3)]"
     >
       {/* Banner */}
-      <div
-        className="h-28 w-full relative"
-        style={{ backgroundImage: collection.banner }}
-      >
+      <div className="h-28 w-full relative overflow-hidden">
+        <img
+          src={collection.banner}
+          alt={collection.name}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.15_0.018_260)] to-transparent" />
         {/* Avatar */}
-        <div
-          className="absolute -bottom-5 left-4 w-12 h-12 rounded-xl border-2 border-[oklch(0.15_0.018_260)]"
-          style={{ backgroundImage: collection.avatar }}
-        />
+        <div className="absolute -bottom-5 left-4 w-12 h-12 rounded-xl border-2 border-[oklch(0.15_0.018_260)] overflow-hidden">
+          <img
+            src={collection.avatar}
+            alt={collection.name}
+            className="w-full h-full object-cover"
+          />
+        </div>
       </div>
 
       {/* Content */}

@@ -86,7 +86,9 @@ function ProfilePage() {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
             {portfolio.map((p) => (
               <div key={p.id} className="group cursor-pointer">
-                <div className="aspect-square rounded-xl overflow-hidden transition-transform duration-300 group-hover:scale-105" style={{ backgroundImage: p.cover }} />
+                <div className="aspect-square rounded-xl overflow-hidden transition-transform duration-300 group-hover:scale-105">
+                  <img src={p.cover} alt={p.name} className="w-full h-full object-cover" />
+                </div>
                 <p className="text-xs text-ink font-medium mt-1.5 truncate">{p.name}</p>
                 <p className="text-[10px] text-muted-foreground">{p.currentValue} ETH</p>
               </div>

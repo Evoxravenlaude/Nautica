@@ -11,9 +11,10 @@ export function NFTCard({ item }: { item: NFTItem }) {
     >
       {/* Cover */}
       <div className="relative aspect-square overflow-hidden">
-        <div
-          className="w-full h-full transition-transform duration-500 group-hover:scale-105"
-          style={{ backgroundImage: item.cover }}
+        <img
+          src={item.cover}
+          alt={item.name}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
         {/* Rarity badge */}
         <div className="absolute top-3 left-3">
@@ -78,9 +79,10 @@ export function NFTCardCompact({ item }: { item: NFTItem }) {
       params={{ id: item.id }}
       className="naut-glass overflow-hidden group cursor-pointer transition-all duration-200 hover:border-[oklch(1_0_0/0.14)]"
     >
-      <div
-        className="aspect-square w-full transition-transform duration-500 group-hover:scale-105"
-        style={{ backgroundImage: item.cover }}
+      <img
+        src={item.cover}
+        alt={item.name}
+        className="aspect-square w-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
       <div className="p-2.5">
         <p className="text-xs font-medium text-ink truncate">{item.name}</p>

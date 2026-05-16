@@ -53,9 +53,10 @@ function DropsPage() {
               <div className="flex flex-col sm:flex-row gap-0">
                 {/* Cover */}
                 <div className="relative sm:w-56 md:w-64 shrink-0 overflow-hidden">
-                  <div
-                    className="h-48 sm:h-full w-full transition-transform duration-500 group-hover:scale-105"
-                    style={{ backgroundImage: d.cover }}
+                  <img
+                    src={d.cover}
+                    alt={d.title}
+                    className="h-48 sm:h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   {d.status === "live" && (
                     <GlowBlob color="oklch(0.72 0.18 145)" size={150} top="-40px" right="-40px" opacity={0.25} />

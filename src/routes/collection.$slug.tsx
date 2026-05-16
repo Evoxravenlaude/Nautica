@@ -49,7 +49,9 @@ function CollectionPage() {
 
       {/* Banner */}
       <div className="relative rounded-2xl overflow-hidden h-40 md:h-52">
-        <div className="absolute inset-0" style={{ backgroundImage: collection?.banner }} />
+        {collection?.banner && (
+          <img src={collection.banner} alt={collection.name} className="absolute inset-0 w-full h-full object-cover" />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
       </div>
 
@@ -57,10 +59,11 @@ function CollectionPage() {
       <div className="relative -mt-8 px-2 md:px-4">
         <div className="flex flex-col sm:flex-row items-start gap-4">
           {/* Avatar */}
-          <div
-            className="w-20 h-20 rounded-2xl border-4 border-background shrink-0"
-            style={{ backgroundImage: collection?.avatar }}
-          />
+          <div className="w-20 h-20 rounded-2xl border-4 border-background shrink-0 overflow-hidden">
+            {collection?.avatar && (
+              <img src={collection.avatar} alt={collection.name} className="w-full h-full object-cover" />
+            )}
+          </div>
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2">
               <h1 className="font-display text-2xl md:text-3xl text-ink font-bold truncate">

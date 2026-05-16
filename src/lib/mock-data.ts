@@ -89,13 +89,6 @@ export type PortfolioItem = {
   cover: string;
 };
 
-// ── Gradient helpers ─────────────────────────────────────────────────────
-const grad = (a: string, b: string) =>
-  `linear-gradient(135deg, ${a}, ${b})`;
-
-const radGrad = (center: string, edge: string) =>
-  `radial-gradient(circle at 30% 40%, ${center}, ${edge})`;
-
 // ── Collections ──────────────────────────────────────────────────────────
 export const MOCK_COLLECTIONS: Collection[] = [
   {
@@ -104,8 +97,8 @@ export const MOCK_COLLECTIONS: Collection[] = [
     creator: "Anouk Vey",
     verified: true,
     description: "Generative gradients born from ocean color spectrometry. 500 unique pieces exploring the interplay of light and water depth.",
-    banner: grad("oklch(0.35 0.12 280)", "oklch(0.20 0.08 220)"),
-    avatar: radGrad("oklch(0.72 0.15 175)", "oklch(0.40 0.10 200)"),
+    banner: "/images/collections/chromatic-drift.png",
+    avatar: "/images/collections/chromatic-drift.png",
     floorPrice: 0.42,
     totalVolume: 186.4,
     listed: 48,
@@ -121,8 +114,8 @@ export const MOCK_COLLECTIONS: Collection[] = [
     creator: "Hiro Tanaka",
     verified: true,
     description: "Hyper-detailed 3D renders of machines that never existed. Each piece is a meditation on function without purpose.",
-    banner: grad("oklch(0.25 0.06 200)", "oklch(0.15 0.04 240)"),
-    avatar: radGrad("oklch(0.65 0.12 200)", "oklch(0.30 0.08 240)"),
+    banner: "/images/collections/phantom-engines.png",
+    avatar: "/images/collections/phantom-engines.png",
     floorPrice: 1.85,
     totalVolume: 542.1,
     listed: 22,
@@ -138,8 +131,8 @@ export const MOCK_COLLECTIONS: Collection[] = [
     creator: "Mara Idris",
     verified: true,
     description: "Analog photography of forests across four continents, each captured at the golden hour of its season.",
-    banner: grad("oklch(0.40 0.10 145)", "oklch(0.22 0.06 160)"),
-    avatar: radGrad("oklch(0.68 0.11 145)", "oklch(0.35 0.08 160)"),
+    banner: "/images/collections/grove-memory.png",
+    avatar: "/images/collections/grove-memory.png",
     floorPrice: 0.28,
     totalVolume: 89.3,
     listed: 35,
@@ -155,8 +148,8 @@ export const MOCK_COLLECTIONS: Collection[] = [
     creator: "Lev Marin",
     verified: true,
     description: "10,000 procedurally generated cosmic entities. Each being carries traits from actual stellar classification data.",
-    banner: grad("oklch(0.30 0.14 310)", "oklch(0.16 0.08 280)"),
-    avatar: radGrad("oklch(0.70 0.16 310)", "oklch(0.35 0.10 280)"),
+    banner: "/images/collections/nebula-beings.png",
+    avatar: "/images/collections/nebula-beings.png",
     floorPrice: 0.08,
     totalVolume: 412.6,
     listed: 890,
@@ -172,8 +165,8 @@ export const MOCK_COLLECTIONS: Collection[] = [
     creator: "P. Okafor",
     verified: false,
     description: "Oil-on-canvas abstractions digitized and tokenized. Each piece comes with a certificate of physical authenticity.",
-    banner: grad("oklch(0.45 0.12 60)", "oklch(0.25 0.08 40)"),
-    avatar: radGrad("oklch(0.78 0.14 60)", "oklch(0.40 0.10 40)"),
+    banner: "/images/collections/field-notes.png",
+    avatar: "/images/collections/field-notes.png",
     floorPrice: 2.15,
     totalVolume: 156.8,
     listed: 12,
@@ -189,8 +182,8 @@ export const MOCK_COLLECTIONS: Collection[] = [
     creator: "Sela Kim",
     verified: true,
     description: "Data-driven art generated from coral reef ecosystem measurements. Proceeds fund ocean conservation.",
-    banner: grad("oklch(0.30 0.10 200)", "oklch(0.18 0.06 180)"),
-    avatar: radGrad("oklch(0.65 0.13 180)", "oklch(0.35 0.08 200)"),
+    banner: "/images/collections/reef-protocol.jpg",
+    avatar: "/images/collections/reef-protocol.jpg",
     floorPrice: 0.15,
     totalVolume: 67.2,
     listed: 78,
@@ -206,8 +199,8 @@ export const MOCK_COLLECTIONS: Collection[] = [
     creator: "J. Moreau",
     verified: true,
     description: "Speculative archaeology of the moon. Rendered relics from a civilization that may have existed before us.",
-    banner: grad("oklch(0.22 0.04 260)", "oklch(0.12 0.02 280)"),
-    avatar: radGrad("oklch(0.55 0.08 260)", "oklch(0.28 0.04 280)"),
+    banner: "/images/collections/lunar-artifacts.jpg",
+    avatar: "/images/collections/lunar-artifacts.jpg",
     floorPrice: 0.55,
     totalVolume: 234.5,
     listed: 31,
@@ -223,8 +216,8 @@ export const MOCK_COLLECTIONS: Collection[] = [
     creator: "Ada Chen",
     verified: true,
     description: "Biomorphic sculptures grown from WiFi signal maps. Each piece visualizes the invisible electromagnetic landscape of a city block.",
-    banner: grad("oklch(0.32 0.10 145)", "oklch(0.18 0.06 175)"),
-    avatar: radGrad("oklch(0.60 0.14 155)", "oklch(0.30 0.08 175)"),
+    banner: "/images/collections/signal-garden.jpg",
+    avatar: "/images/collections/signal-garden.jpg",
     floorPrice: 0.32,
     totalVolume: 128.9,
     listed: 42,
@@ -239,26 +232,26 @@ export const MOCK_COLLECTIONS: Collection[] = [
 // ── NFT Items (sample per collection) ────────────────────────────────────
 export const MOCK_ITEMS: NFTItem[] = [
   // Chromatic Drift
-  { id: "cd-1", collectionSlug: "chromatic-drift", collectionName: "Chromatic Drift", name: "Tideglass #004", tokenId: 4, price: 0.42, lastSale: 0.35, currency: "ETH", rarity: 95.2, rarityRank: 12, owner: "0x4a7b...f02c", listed: true, cover: grad("oklch(0.78 0.12 280)", "oklch(0.55 0.10 220)"), traits: [{ type: "Depth", value: "Abyssal", rarity: 3.2 }, { type: "Spectrum", value: "Violet", rarity: 8.5 }, { type: "Motion", value: "Spiral", rarity: 12.1 }] },
-  { id: "cd-2", collectionSlug: "chromatic-drift", collectionName: "Chromatic Drift", name: "Tideglass #117", tokenId: 117, price: 0.58, lastSale: 0.40, currency: "ETH", rarity: 88.1, rarityRank: 34, owner: "0x91c3...2d4e", listed: true, cover: grad("oklch(0.72 0.14 175)", "oklch(0.50 0.12 200)"), traits: [{ type: "Depth", value: "Pelagic", rarity: 15.2 }, { type: "Spectrum", value: "Teal", rarity: 10.4 }, { type: "Motion", value: "Wave", rarity: 18.3 }] },
-  { id: "cd-3", collectionSlug: "chromatic-drift", collectionName: "Chromatic Drift", name: "Tideglass #042", tokenId: 42, price: null, lastSale: 0.52, currency: "ETH", rarity: 97.8, rarityRank: 5, owner: "0x3f8a...c1b7", listed: false, cover: grad("oklch(0.80 0.10 60)", "oklch(0.60 0.12 80)"), traits: [{ type: "Depth", value: "Hadal", rarity: 1.2 }, { type: "Spectrum", value: "Gold", rarity: 4.8 }, { type: "Motion", value: "Vortex", rarity: 2.5 }] },
+  { id: "cd-1", collectionSlug: "chromatic-drift", collectionName: "Chromatic Drift", name: "Tideglass #004", tokenId: 4, price: 0.42, lastSale: 0.35, currency: "ETH", rarity: 95.2, rarityRank: 12, owner: "0x4a7b...f02c", listed: true, cover: "/images/items/cd-1.jpg", traits: [{ type: "Depth", value: "Abyssal", rarity: 3.2 }, { type: "Spectrum", value: "Violet", rarity: 8.5 }, { type: "Motion", value: "Spiral", rarity: 12.1 }] },
+  { id: "cd-2", collectionSlug: "chromatic-drift", collectionName: "Chromatic Drift", name: "Tideglass #117", tokenId: 117, price: 0.58, lastSale: 0.40, currency: "ETH", rarity: 88.1, rarityRank: 34, owner: "0x91c3...2d4e", listed: true, cover: "/images/items/cd-2.jpg", traits: [{ type: "Depth", value: "Pelagic", rarity: 15.2 }, { type: "Spectrum", value: "Teal", rarity: 10.4 }, { type: "Motion", value: "Wave", rarity: 18.3 }] },
+  { id: "cd-3", collectionSlug: "chromatic-drift", collectionName: "Chromatic Drift", name: "Tideglass #042", tokenId: 42, price: null, lastSale: 0.52, currency: "ETH", rarity: 97.8, rarityRank: 5, owner: "0x3f8a...c1b7", listed: false, cover: "/images/items/cd-3.jpg", traits: [{ type: "Depth", value: "Hadal", rarity: 1.2 }, { type: "Spectrum", value: "Gold", rarity: 4.8 }, { type: "Motion", value: "Vortex", rarity: 2.5 }] },
   // Phantom Engines
-  { id: "pe-1", collectionSlug: "phantom-engines", collectionName: "Phantom Engines", name: "Engine IX", tokenId: 9, price: 1.85, lastSale: 1.60, currency: "ETH", rarity: 92.4, rarityRank: 18, owner: "0x7d2e...a9f1", listed: true, cover: grad("oklch(0.35 0.08 200)", "oklch(0.20 0.06 240)"), traits: [{ type: "Era", value: "Post-Industrial", rarity: 5.6 }, { type: "Material", value: "Obsidian", rarity: 3.8 }, { type: "Function", value: "Unknown", rarity: 1.2 }] },
-  { id: "pe-2", collectionSlug: "phantom-engines", collectionName: "Phantom Engines", name: "Engine XXII", tokenId: 22, price: 2.40, lastSale: 2.10, currency: "ETH", rarity: 96.1, rarityRank: 7, owner: "0x1b5c...e8d3", listed: true, cover: grad("oklch(0.28 0.06 260)", "oklch(0.16 0.04 280)"), traits: [{ type: "Era", value: "Pre-Quantum", rarity: 2.1 }, { type: "Material", value: "Dark Matter", rarity: 1.5 }, { type: "Function", value: "Temporal", rarity: 0.8 }] },
+  { id: "pe-1", collectionSlug: "phantom-engines", collectionName: "Phantom Engines", name: "Engine IX", tokenId: 9, price: 1.85, lastSale: 1.60, currency: "ETH", rarity: 92.4, rarityRank: 18, owner: "0x7d2e...a9f1", listed: true, cover: "/images/items/pe-1.jpg", traits: [{ type: "Era", value: "Post-Industrial", rarity: 5.6 }, { type: "Material", value: "Obsidian", rarity: 3.8 }, { type: "Function", value: "Unknown", rarity: 1.2 }] },
+  { id: "pe-2", collectionSlug: "phantom-engines", collectionName: "Phantom Engines", name: "Engine XXII", tokenId: 22, price: 2.40, lastSale: 2.10, currency: "ETH", rarity: 96.1, rarityRank: 7, owner: "0x1b5c...e8d3", listed: true, cover: "/images/items/pe-2.jpg", traits: [{ type: "Era", value: "Pre-Quantum", rarity: 2.1 }, { type: "Material", value: "Dark Matter", rarity: 1.5 }, { type: "Function", value: "Temporal", rarity: 0.8 }] },
   // Grove Memory
-  { id: "gm-1", collectionSlug: "grove-memory", collectionName: "Grove Memory", name: "August, Kyoto", tokenId: 3, price: 0.28, lastSale: 0.22, currency: "ETH", rarity: 78.5, rarityRank: 42, owner: "0x5e9d...b3a6", listed: true, cover: grad("oklch(0.55 0.10 145)", "oklch(0.35 0.08 130)"), traits: [{ type: "Season", value: "Summer", rarity: 25.0 }, { type: "Region", value: "Asia", rarity: 20.0 }, { type: "Light", value: "Golden", rarity: 15.0 }] },
-  { id: "gm-2", collectionSlug: "grove-memory", collectionName: "Grove Memory", name: "March, Patagonia", tokenId: 8, price: 0.35, lastSale: 0.30, currency: "ETH", rarity: 84.2, rarityRank: 28, owner: "0x8c4f...d7e2", listed: true, cover: grad("oklch(0.50 0.12 160)", "oklch(0.30 0.08 145)"), traits: [{ type: "Season", value: "Autumn", rarity: 18.0 }, { type: "Region", value: "South America", rarity: 12.0 }, { type: "Light", value: "Crimson", rarity: 8.5 }] },
+  { id: "gm-1", collectionSlug: "grove-memory", collectionName: "Grove Memory", name: "August, Kyoto", tokenId: 3, price: 0.28, lastSale: 0.22, currency: "ETH", rarity: 78.5, rarityRank: 42, owner: "0x5e9d...b3a6", listed: true, cover: "/images/items/gm-1.jpg", traits: [{ type: "Season", value: "Summer", rarity: 25.0 }, { type: "Region", value: "Asia", rarity: 20.0 }, { type: "Light", value: "Golden", rarity: 15.0 }] },
+  { id: "gm-2", collectionSlug: "grove-memory", collectionName: "Grove Memory", name: "March, Patagonia", tokenId: 8, price: 0.35, lastSale: 0.30, currency: "ETH", rarity: 84.2, rarityRank: 28, owner: "0x8c4f...d7e2", listed: true, cover: "/images/items/gm-2.jpg", traits: [{ type: "Season", value: "Autumn", rarity: 18.0 }, { type: "Region", value: "South America", rarity: 12.0 }, { type: "Light", value: "Crimson", rarity: 8.5 }] },
   // Nebula Beings
-  { id: "nb-1", collectionSlug: "nebula-beings", collectionName: "Nebula Beings", name: "Being #4281", tokenId: 4281, price: 0.08, lastSale: 0.06, currency: "ETH", rarity: 72.3, rarityRank: 1840, owner: "0xa2c8...f5b1", listed: true, cover: grad("oklch(0.50 0.16 310)", "oklch(0.30 0.12 280)"), traits: [{ type: "Nebula", value: "Carina", rarity: 8.5 }, { type: "Mass", value: "Dwarf", rarity: 45.0 }, { type: "Emission", value: "UV", rarity: 22.0 }] },
-  { id: "nb-2", collectionSlug: "nebula-beings", collectionName: "Nebula Beings", name: "Being #0007", tokenId: 7, price: 4.20, lastSale: 3.80, currency: "ETH", rarity: 99.9, rarityRank: 1, owner: "0xd4e1...a8c3", listed: true, cover: grad("oklch(0.65 0.18 330)", "oklch(0.40 0.14 310)"), traits: [{ type: "Nebula", value: "Pillars of Creation", rarity: 0.1 }, { type: "Mass", value: "Supergiant", rarity: 0.5 }, { type: "Emission", value: "Gamma", rarity: 0.3 }] },
+  { id: "nb-1", collectionSlug: "nebula-beings", collectionName: "Nebula Beings", name: "Being #4281", tokenId: 4281, price: 0.08, lastSale: 0.06, currency: "ETH", rarity: 72.3, rarityRank: 1840, owner: "0xa2c8...f5b1", listed: true, cover: "/images/items/nb-1.jpg", traits: [{ type: "Nebula", value: "Carina", rarity: 8.5 }, { type: "Mass", value: "Dwarf", rarity: 45.0 }, { type: "Emission", value: "UV", rarity: 22.0 }] },
+  { id: "nb-2", collectionSlug: "nebula-beings", collectionName: "Nebula Beings", name: "Being #0007", tokenId: 7, price: 4.20, lastSale: 3.80, currency: "ETH", rarity: 99.9, rarityRank: 1, owner: "0xd4e1...a8c3", listed: true, cover: "/images/items/nb-2.jpg", traits: [{ type: "Nebula", value: "Pillars of Creation", rarity: 0.1 }, { type: "Mass", value: "Supergiant", rarity: 0.5 }, { type: "Emission", value: "Gamma", rarity: 0.3 }] },
   // Field Notes
-  { id: "fn-1", collectionSlug: "field-notes", collectionName: "Field Notes", name: "Field Notes II", tokenId: 2, price: 2.15, lastSale: 1.80, currency: "ETH", rarity: 90.5, rarityRank: 8, owner: "0x6f3b...c9d4", listed: true, cover: grad("oklch(0.68 0.14 60)", "oklch(0.45 0.10 40)"), traits: [{ type: "Medium", value: "Oil on Canvas", rarity: 12.5 }, { type: "Scale", value: "Large", rarity: 18.0 }, { type: "Period", value: "2024", rarity: 25.0 }] },
+  { id: "fn-1", collectionSlug: "field-notes", collectionName: "Field Notes", name: "Field Notes II", tokenId: 2, price: 2.15, lastSale: 1.80, currency: "ETH", rarity: 90.5, rarityRank: 8, owner: "0x6f3b...c9d4", listed: true, cover: "/images/items/fn-1.jpg", traits: [{ type: "Medium", value: "Oil on Canvas", rarity: 12.5 }, { type: "Scale", value: "Large", rarity: 18.0 }, { type: "Period", value: "2024", rarity: 25.0 }] },
   // Reef Protocol
-  { id: "rp-1", collectionSlug: "reef-protocol", collectionName: "Reef Protocol", name: "Coral #088", tokenId: 88, price: 0.15, lastSale: 0.12, currency: "ETH", rarity: 68.2, rarityRank: 245, owner: "0xb7a4...e2f8", listed: true, cover: grad("oklch(0.55 0.12 180)", "oklch(0.35 0.08 200)"), traits: [{ type: "Reef", value: "Great Barrier", rarity: 10.0 }, { type: "Species", value: "Brain Coral", rarity: 15.0 }, { type: "Health", value: "Thriving", rarity: 30.0 }] },
+  { id: "rp-1", collectionSlug: "reef-protocol", collectionName: "Reef Protocol", name: "Coral #088", tokenId: 88, price: 0.15, lastSale: 0.12, currency: "ETH", rarity: 68.2, rarityRank: 245, owner: "0xb7a4...e2f8", listed: true, cover: "/images/items/rp-1.jpg", traits: [{ type: "Reef", value: "Great Barrier", rarity: 10.0 }, { type: "Species", value: "Brain Coral", rarity: 15.0 }, { type: "Health", value: "Thriving", rarity: 30.0 }] },
   // Lunar Artifacts
-  { id: "la-1", collectionSlug: "lunar-artifacts", collectionName: "Lunar Artifacts", name: "Relic XLIV", tokenId: 44, price: 0.55, lastSale: 0.48, currency: "ETH", rarity: 86.7, rarityRank: 35, owner: "0xc5d2...b1a9", listed: true, cover: grad("oklch(0.35 0.06 260)", "oklch(0.18 0.04 280)"), traits: [{ type: "Origin", value: "Mare Tranquillitatis", rarity: 5.5 }, { type: "Material", value: "Regolith Alloy", rarity: 8.2 }, { type: "Age", value: "Pre-Holocene", rarity: 3.1 }] },
+  { id: "la-1", collectionSlug: "lunar-artifacts", collectionName: "Lunar Artifacts", name: "Relic XLIV", tokenId: 44, price: 0.55, lastSale: 0.48, currency: "ETH", rarity: 86.7, rarityRank: 35, owner: "0xc5d2...b1a9", listed: true, cover: "/images/items/la-1.jpg", traits: [{ type: "Origin", value: "Mare Tranquillitatis", rarity: 5.5 }, { type: "Material", value: "Regolith Alloy", rarity: 8.2 }, { type: "Age", value: "Pre-Holocene", rarity: 3.1 }] },
   // Signal Garden
-  { id: "sg-1", collectionSlug: "signal-garden", collectionName: "Signal Garden", name: "Signal #156", tokenId: 156, price: 0.32, lastSale: 0.25, currency: "ETH", rarity: 81.4, rarityRank: 62, owner: "0xe8f3...d4c7", listed: true, cover: grad("oklch(0.50 0.12 155)", "oklch(0.30 0.08 175)"), traits: [{ type: "City", value: "Tokyo", rarity: 6.0 }, { type: "Band", value: "5GHz", rarity: 18.0 }, { type: "Density", value: "High", rarity: 12.0 }] },
+  { id: "sg-1", collectionSlug: "signal-garden", collectionName: "Signal Garden", name: "Signal #156", tokenId: 156, price: 0.32, lastSale: 0.25, currency: "ETH", rarity: 81.4, rarityRank: 62, owner: "0xe8f3...d4c7", listed: true, cover: "/images/items/sg-1.jpg", traits: [{ type: "City", value: "Tokyo", rarity: 6.0 }, { type: "Band", value: "5GHz", rarity: 18.0 }, { type: "Density", value: "High", rarity: 12.0 }] },
 ];
 
 // ── Offers ────────────────────────────────────────────────────────────────
@@ -272,32 +265,32 @@ export const MOCK_OFFERS: Offer[] = [
 
 // ── Drops ─────────────────────────────────────────────────────────────────
 export const MOCK_DROPS: Drop[] = [
-  { id: "d1", title: "Saltwater Index", artist: "Anouk Vey", startsAt: "Live now", status: "live", pieces: 24, minted: 18, mintPrice: 0.35, cover: grad("oklch(0.72 0.14 175)", "oklch(0.45 0.10 200)") },
-  { id: "d2", title: "Quiet Algorithms", artist: "Hiro Tanaka", startsAt: "In 2h 14m", status: "upcoming", pieces: 12, minted: 0, mintPrice: 1.50, cover: grad("oklch(0.50 0.10 280)", "oklch(0.30 0.08 310)") },
-  { id: "d3", title: "Notes from August", artist: "Mara Idris", startsAt: "Tomorrow, 18:00", status: "upcoming", pieces: 8, minted: 0, mintPrice: 0.25, cover: grad("oklch(0.55 0.10 145)", "oklch(0.35 0.08 130)") },
-  { id: "d4", title: "Folded Light Vol I", artist: "Lev Marin", startsAt: "Ended 3d ago", status: "ended", pieces: 50, minted: 50, mintPrice: 0.18, cover: grad("oklch(0.45 0.12 310)", "oklch(0.28 0.08 280)") },
+  { id: "d1", title: "Saltwater Index", artist: "Anouk Vey", startsAt: "Live now", status: "live", pieces: 24, minted: 18, mintPrice: 0.35, cover: "/images/drops/saltwater-index.jpg" },
+  { id: "d2", title: "Quiet Algorithms", artist: "Hiro Tanaka", startsAt: "In 2h 14m", status: "upcoming", pieces: 12, minted: 0, mintPrice: 1.50, cover: "/images/drops/quiet-algorithms.jpg" },
+  { id: "d3", title: "Notes from August", artist: "Mara Idris", startsAt: "Tomorrow, 18:00", status: "upcoming", pieces: 8, minted: 0, mintPrice: 0.25, cover: "/images/drops/notes-from-august.jpg" },
+  { id: "d4", title: "Folded Light Vol I", artist: "Lev Marin", startsAt: "Ended 3d ago", status: "ended", pieces: 50, minted: 50, mintPrice: 0.18, cover: "/images/drops/folded-light.jpg" },
 ];
 
 // ── Activity feed ────────────────────────────────────────────────────────
 export const MOCK_ACTIVITY: Activity[] = [
-  { id: "a1", kind: "sale", title: "Tideglass #004", collection: "Chromatic Drift", amount: 0.42, currency: "ETH", from: "0x91c3...2d4e", to: "0x4a7b...f02c", proof: "verified", at: "2m ago", tokenImage: grad("oklch(0.78 0.12 280)", "oklch(0.55 0.10 220)") },
-  { id: "a2", kind: "listing", title: "Engine IX", collection: "Phantom Engines", amount: 1.85, currency: "ETH", from: "0x7d2e...a9f1", to: "", proof: "none", at: "5m ago", tokenImage: grad("oklch(0.35 0.08 200)", "oklch(0.20 0.06 240)") },
-  { id: "a3", kind: "offer", title: "Being #0007", collection: "Nebula Beings", amount: 3.50, currency: "ETH", from: "0xa2c8...f5b1", to: "0xd4e1...a8c3", proof: "none", at: "12m ago", tokenImage: grad("oklch(0.65 0.18 330)", "oklch(0.40 0.14 310)") },
+  { id: "a1", kind: "sale", title: "Tideglass #004", collection: "Chromatic Drift", amount: 0.42, currency: "ETH", from: "0x91c3...2d4e", to: "0x4a7b...f02c", proof: "verified", at: "2m ago", tokenImage: "/images/items/cd-1.jpg" },
+  { id: "a2", kind: "listing", title: "Engine IX", collection: "Phantom Engines", amount: 1.85, currency: "ETH", from: "0x7d2e...a9f1", to: "", proof: "none", at: "5m ago", tokenImage: "/images/items/pe-1.jpg" },
+  { id: "a3", kind: "offer", title: "Being #0007", collection: "Nebula Beings", amount: 3.50, currency: "ETH", from: "0xa2c8...f5b1", to: "0xd4e1...a8c3", proof: "none", at: "12m ago", tokenImage: "/images/items/nb-2.jpg" },
   { id: "a4", kind: "send", title: "Private payment to 0x91…2c", collection: undefined, amount: 120, currency: "USDC", from: "0x4a7b...f02c", to: "0x91c3...2d4e", proof: "verified", at: "1h ago" },
-  { id: "a5", kind: "transfer", title: "Coral #088", collection: "Reef Protocol", amount: 0, currency: "ETH", from: "0xb7a4...e2f8", to: "0xc5d2...b1a9", proof: "verified", at: "2h ago", tokenImage: grad("oklch(0.55 0.12 180)", "oklch(0.35 0.08 200)") },
-  { id: "a6", kind: "mint", title: "Signal #156", collection: "Signal Garden", amount: 0.25, currency: "ETH", from: "0x0000...0000", to: "0xe8f3...d4c7", proof: "verified", at: "3h ago", tokenImage: grad("oklch(0.50 0.12 155)", "oklch(0.30 0.08 175)") },
-  { id: "a7", kind: "sale", title: "Field Notes II", collection: "Field Notes", amount: 2.15, currency: "ETH", from: "0x3f8a...c1b7", to: "0x6f3b...c9d4", proof: "verified", at: "5h ago", tokenImage: grad("oklch(0.68 0.14 60)", "oklch(0.45 0.10 40)") },
+  { id: "a5", kind: "transfer", title: "Coral #088", collection: "Reef Protocol", amount: 0, currency: "ETH", from: "0xb7a4...e2f8", to: "0xc5d2...b1a9", proof: "verified", at: "2h ago", tokenImage: "/images/items/rp-1.jpg" },
+  { id: "a6", kind: "mint", title: "Signal #156", collection: "Signal Garden", amount: 0.25, currency: "ETH", from: "0x0000...0000", to: "0xe8f3...d4c7", proof: "verified", at: "3h ago", tokenImage: "/images/items/sg-1.jpg" },
+  { id: "a7", kind: "sale", title: "Field Notes II", collection: "Field Notes", amount: 2.15, currency: "ETH", from: "0x3f8a...c1b7", to: "0x6f3b...c9d4", proof: "verified", at: "5h ago", tokenImage: "/images/items/fn-1.jpg" },
   { id: "a8", kind: "receive", title: "From 0x4a…f0", collection: undefined, amount: 0.05, currency: "ETH", from: "0x4a7b...f02c", to: "0x91c3...2d4e", proof: "verified", at: "8h ago" },
 ];
 
 // ── Portfolio ─────────────────────────────────────────────────────────────
 export const MOCK_PORTFOLIO: PortfolioItem[] = [
-  { id: "cd-1", name: "Tideglass #004", collection: "Chromatic Drift", purchasePrice: 0.35, currentValue: 0.42, pnl: 0.07, pnlPercent: 20.0, cover: grad("oklch(0.78 0.12 280)", "oklch(0.55 0.10 220)") },
-  { id: "pe-1", name: "Engine IX", collection: "Phantom Engines", purchasePrice: 1.60, currentValue: 1.85, pnl: 0.25, pnlPercent: 15.6, cover: grad("oklch(0.35 0.08 200)", "oklch(0.20 0.06 240)") },
-  { id: "gm-1", name: "August, Kyoto", collection: "Grove Memory", purchasePrice: 0.30, currentValue: 0.28, pnl: -0.02, pnlPercent: -6.7, cover: grad("oklch(0.55 0.10 145)", "oklch(0.35 0.08 130)") },
-  { id: "nb-2", name: "Being #0007", collection: "Nebula Beings", purchasePrice: 3.80, currentValue: 4.20, pnl: 0.40, pnlPercent: 10.5, cover: grad("oklch(0.65 0.18 330)", "oklch(0.40 0.14 310)") },
-  { id: "la-1", name: "Relic XLIV", collection: "Lunar Artifacts", purchasePrice: 0.48, currentValue: 0.55, pnl: 0.07, pnlPercent: 14.6, cover: grad("oklch(0.35 0.06 260)", "oklch(0.18 0.04 280)") },
-  { id: "sg-1", name: "Signal #156", collection: "Signal Garden", purchasePrice: 0.25, currentValue: 0.32, pnl: 0.07, pnlPercent: 28.0, cover: grad("oklch(0.50 0.12 155)", "oklch(0.30 0.08 175)") },
+  { id: "cd-1", name: "Tideglass #004", collection: "Chromatic Drift", purchasePrice: 0.35, currentValue: 0.42, pnl: 0.07, pnlPercent: 20.0, cover: "/images/items/cd-1.jpg" },
+  { id: "pe-1", name: "Engine IX", collection: "Phantom Engines", purchasePrice: 1.60, currentValue: 1.85, pnl: 0.25, pnlPercent: 15.6, cover: "/images/items/pe-1.jpg" },
+  { id: "gm-1", name: "August, Kyoto", collection: "Grove Memory", purchasePrice: 0.30, currentValue: 0.28, pnl: -0.02, pnlPercent: -6.7, cover: "/images/items/gm-1.jpg" },
+  { id: "nb-2", name: "Being #0007", collection: "Nebula Beings", purchasePrice: 3.80, currentValue: 4.20, pnl: 0.40, pnlPercent: 10.5, cover: "/images/items/nb-2.jpg" },
+  { id: "la-1", name: "Relic XLIV", collection: "Lunar Artifacts", purchasePrice: 0.48, currentValue: 0.55, pnl: 0.07, pnlPercent: 14.6, cover: "/images/items/la-1.jpg" },
+  { id: "sg-1", name: "Signal #156", collection: "Signal Garden", purchasePrice: 0.25, currentValue: 0.32, pnl: 0.07, pnlPercent: 28.0, cover: "/images/items/sg-1.jpg" },
 ];
 
 // ── Sparkline data (7-day floor prices) ──────────────────────────────────

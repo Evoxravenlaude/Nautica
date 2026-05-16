@@ -11,12 +11,17 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SendRouteImport } from './routes/send'
+import { Route as RankingsRouteImport } from './routes/rankings'
 import { Route as ProfileRouteImport } from './routes/profile'
+import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as MarketRouteImport } from './routes/market'
+import { Route as ExploreRouteImport } from './routes/explore'
 import { Route as DropsRouteImport } from './routes/drops'
 import { Route as ActivityRouteImport } from './routes/activity'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as MarketIdRouteImport } from './routes/market.$id'
+import { Route as CollectionSlugRouteImport } from './routes/collection.$slug'
+import { Route as AssetIdRouteImport } from './routes/asset.$id'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -28,14 +33,29 @@ const SendRoute = SendRouteImport.update({
   path: '/send',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RankingsRoute = RankingsRouteImport.update({
+  id: '/rankings',
+  path: '/rankings',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProfileRoute = ProfileRouteImport.update({
   id: '/profile',
   path: '/profile',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PortfolioRoute = PortfolioRouteImport.update({
+  id: '/portfolio',
+  path: '/portfolio',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MarketRoute = MarketRouteImport.update({
   id: '/market',
   path: '/market',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExploreRoute = ExploreRouteImport.update({
+  id: '/explore',
+  path: '/explore',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DropsRoute = DropsRouteImport.update({
@@ -58,25 +78,45 @@ const MarketIdRoute = MarketIdRouteImport.update({
   path: '/$id',
   getParentRoute: () => MarketRoute,
 } as any)
+const CollectionSlugRoute = CollectionSlugRouteImport.update({
+  id: '/collection/$slug',
+  path: '/collection/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AssetIdRoute = AssetIdRouteImport.update({
+  id: '/asset/$id',
+  path: '/asset/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/activity': typeof ActivityRoute
   '/drops': typeof DropsRoute
+  '/explore': typeof ExploreRoute
   '/market': typeof MarketRouteWithChildren
+  '/portfolio': typeof PortfolioRoute
   '/profile': typeof ProfileRoute
+  '/rankings': typeof RankingsRoute
   '/send': typeof SendRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/asset/$id': typeof AssetIdRoute
+  '/collection/$slug': typeof CollectionSlugRoute
   '/market/$id': typeof MarketIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/activity': typeof ActivityRoute
   '/drops': typeof DropsRoute
+  '/explore': typeof ExploreRoute
   '/market': typeof MarketRouteWithChildren
+  '/portfolio': typeof PortfolioRoute
   '/profile': typeof ProfileRoute
+  '/rankings': typeof RankingsRoute
   '/send': typeof SendRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/asset/$id': typeof AssetIdRoute
+  '/collection/$slug': typeof CollectionSlugRoute
   '/market/$id': typeof MarketIdRoute
 }
 export interface FileRoutesById {
@@ -84,10 +124,15 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/activity': typeof ActivityRoute
   '/drops': typeof DropsRoute
+  '/explore': typeof ExploreRoute
   '/market': typeof MarketRouteWithChildren
+  '/portfolio': typeof PortfolioRoute
   '/profile': typeof ProfileRoute
+  '/rankings': typeof RankingsRoute
   '/send': typeof SendRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/asset/$id': typeof AssetIdRoute
+  '/collection/$slug': typeof CollectionSlugRoute
   '/market/$id': typeof MarketIdRoute
 }
 export interface FileRouteTypes {
@@ -96,30 +141,45 @@ export interface FileRouteTypes {
     | '/'
     | '/activity'
     | '/drops'
+    | '/explore'
     | '/market'
+    | '/portfolio'
     | '/profile'
+    | '/rankings'
     | '/send'
     | '/sitemap.xml'
+    | '/asset/$id'
+    | '/collection/$slug'
     | '/market/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/activity'
     | '/drops'
+    | '/explore'
     | '/market'
+    | '/portfolio'
     | '/profile'
+    | '/rankings'
     | '/send'
     | '/sitemap.xml'
+    | '/asset/$id'
+    | '/collection/$slug'
     | '/market/$id'
   id:
     | '__root__'
     | '/'
     | '/activity'
     | '/drops'
+    | '/explore'
     | '/market'
+    | '/portfolio'
     | '/profile'
+    | '/rankings'
     | '/send'
     | '/sitemap.xml'
+    | '/asset/$id'
+    | '/collection/$slug'
     | '/market/$id'
   fileRoutesById: FileRoutesById
 }
@@ -127,10 +187,15 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ActivityRoute: typeof ActivityRoute
   DropsRoute: typeof DropsRoute
+  ExploreRoute: typeof ExploreRoute
   MarketRoute: typeof MarketRouteWithChildren
+  PortfolioRoute: typeof PortfolioRoute
   ProfileRoute: typeof ProfileRoute
+  RankingsRoute: typeof RankingsRoute
   SendRoute: typeof SendRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  AssetIdRoute: typeof AssetIdRoute
+  CollectionSlugRoute: typeof CollectionSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -149,6 +214,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SendRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/rankings': {
+      id: '/rankings'
+      path: '/rankings'
+      fullPath: '/rankings'
+      preLoaderRoute: typeof RankingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/profile': {
       id: '/profile'
       path: '/profile'
@@ -156,11 +228,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProfileRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/portfolio': {
+      id: '/portfolio'
+      path: '/portfolio'
+      fullPath: '/portfolio'
+      preLoaderRoute: typeof PortfolioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/market': {
       id: '/market'
       path: '/market'
       fullPath: '/market'
       preLoaderRoute: typeof MarketRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/explore': {
+      id: '/explore'
+      path: '/explore'
+      fullPath: '/explore'
+      preLoaderRoute: typeof ExploreRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/drops': {
@@ -191,6 +277,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MarketIdRouteImport
       parentRoute: typeof MarketRoute
     }
+    '/collection/$slug': {
+      id: '/collection/$slug'
+      path: '/collection/$slug'
+      fullPath: '/collection/$slug'
+      preLoaderRoute: typeof CollectionSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/asset/$id': {
+      id: '/asset/$id'
+      path: '/asset/$id'
+      fullPath: '/asset/$id'
+      preLoaderRoute: typeof AssetIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -209,11 +309,26 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ActivityRoute: ActivityRoute,
   DropsRoute: DropsRoute,
+  ExploreRoute: ExploreRoute,
   MarketRoute: MarketRouteWithChildren,
+  PortfolioRoute: PortfolioRoute,
   ProfileRoute: ProfileRoute,
+  RankingsRoute: RankingsRoute,
   SendRoute: SendRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  AssetIdRoute: AssetIdRoute,
+  CollectionSlugRoute: CollectionSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

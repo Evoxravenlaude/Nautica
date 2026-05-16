@@ -111,10 +111,9 @@ function ActivityPage() {
 
                 {/* Token image (if exists) */}
                 {a.tokenImage && (
-                  <div
-                    className="w-10 h-10 rounded-lg shrink-0 hidden sm:block"
-                    style={{ backgroundImage: a.tokenImage }}
-                  />
+                  <div className="w-10 h-10 rounded-lg shrink-0 hidden sm:block overflow-hidden">
+                    <img src={a.tokenImage} alt={a.title} className="w-full h-full object-cover" />
+                  </div>
                 )}
 
                 {/* Details */}

@@ -45,10 +45,10 @@ function AssetPage() {
       <div className="grid lg:grid-cols-[1.1fr_1fr] gap-6">
         {/* Left — Image */}
         <div className="relative">
-          <div
-            className="naut-glass aspect-square w-full overflow-hidden relative"
-            style={{ backgroundImage: item?.cover }}
-          >
+          <div className="naut-glass aspect-square w-full overflow-hidden relative">
+            {item?.cover && (
+              <img src={item.cover} alt={item.name} className="w-full h-full object-cover" />
+            )}
             <GlowBlob color="oklch(0.72 0.15 175)" size={200} top="-50px" right="-50px" opacity={0.15} />
           </div>
           {/* Action buttons under image */}

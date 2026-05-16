@@ -95,10 +95,9 @@ function PortfolioPage() {
             return (
               <div key={p.id} className="naut-table-row gap-4">
                 {/* Thumbnail */}
-                <div
-                  className="w-12 h-12 rounded-xl shrink-0"
-                  style={{ backgroundImage: p.cover }}
-                />
+                <div className="w-12 h-12 rounded-xl shrink-0 overflow-hidden">
+                  <img src={p.cover} alt={p.name} className="w-full h-full object-cover" />
+                </div>
                 {/* Name */}
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium text-ink truncate">{p.name}</p>
@@ -139,7 +138,7 @@ function PortfolioPage() {
           ))}
           {ownedItems.length === 0 && portfolio.map((p) => (
             <div key={p.id} className="naut-glass overflow-hidden">
-              <div className="aspect-square w-full" style={{ backgroundImage: p.cover }} />
+              <img src={p.cover} alt={p.name} className="aspect-square w-full object-cover" />
               <div className="p-2.5">
                 <p className="text-xs font-medium text-ink truncate">{p.name}</p>
                 <p className="text-xs text-muted-foreground">{p.currentValue} ETH</p>

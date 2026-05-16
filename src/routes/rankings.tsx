@@ -97,10 +97,9 @@ function RankingsPage() {
 
               {/* Collection */}
               <div className="flex-1 flex items-center gap-3 min-w-0">
-                <div
-                  className="w-10 h-10 rounded-xl shrink-0"
-                  style={{ backgroundImage: c.avatar }}
-                />
+                <div className="w-10 h-10 rounded-xl shrink-0 overflow-hidden">
+                  <img src={c.avatar} alt={c.name} className="w-full h-full object-cover" />
+                </div>
                 <div className="min-w-0">
                   <div className="flex items-center gap-1.5">
                     <p className="text-sm font-semibold text-ink truncate">{c.name}</p>
