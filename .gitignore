@@ -1,0 +1,22 @@
+# Frontend Dependencies
+node_modules/
+.pnpm-store/
+dist/
+
+# Web3 Smart Contract Build Artifacts
+artifacts/
+cache/
+out/
+typechain/
+typechain-types/
+coverage/
+coverage.json
+
+# Local Testing Blockchains & Test Environments
+.anvil/
+.hardhat/
+
+# Sensitive Variables (Keys & Mnemonics)
+.env
+.env.local
+*.pem
